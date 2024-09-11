@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakdown Report Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: orange;
+        }
+        h3 {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"], select, input[type="file"], input[type="date"], input[type="time"] {
+            padding: 10px;
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #e67e22;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 200px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #d35400;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .col {
+            flex: 0 0 48%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Breakdown Report</h2>
+    <form id="breakdownForm">
+        <!-- Breakdown Report Section -->
+        <h3>Breakdown Report</h3>
+        <label for="site">Site:</label>
+                <input type="text" id="site" name="site" placeholder="Enter Site">
+        <div class="row">
+            <div class="col">
+
+                <label for="transactionID">Transaction ID:</label>
+                <input type="text" id="transactionID" name="transactionID" placeholder="Enter Transaction ID">
+
+                <label for="equipmentType">Equipment Type:</label>
+                <select id="equipmentType" name="equipmentType">
+                    <option value="">Select Equipment Type</option>
+                    <option value="vehicle">Vehicle / Machinery</option>
+                    <option value="powerTools">Power Tools</option>
+                </select>
+
+                <label for="type">Type:</label>
+                <input type="text" id="type" name="type" placeholder="Enter Type">
+
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" placeholder="Enter Model">
+
+                <label for="breakdownDate">Breakdown Date:</label>
+                <input type="date" id="breakdownDate" name="breakdownDate">
+
+                <label for="Required Date">Required Date:</label>
+                <input type="text" name="breakdownDate">
+
+                <label for="repairStatus">Repair Status:</label>
+                <select id="repairStatus" name="repairStatus">
+                    <option value="">Select Status</option>
+                    <option value="repaired">Repaired</option>
+                    <option value="notRepaired">Not Repaired</option>
+                </select>
+
+                <label for="issue">Issue:</label>
+                <input type="text" name="issue">
+
+            </div>
+
+            <div class="col">
+                <label for="transactionDate">Transaction Date:</label>
+                <input type="text" id="transactionDate" name="transactionDate" placeholder="Select Date">
+
+                <label for="assetCode">Asset Code / Name:</label>
+                <input type="text" id="assetCode" name="assetCode" placeholder="Enter Asset Code / Name">
+
+                <label for="subCode">Sub Code:</label>
+                <input type="text" id="subCode" name="subCode" placeholder="Enter Sub Code">
+
+                <label for="breakdownType">Breakdown Type:</label>
+                <input type="text" id="breakdownType" name="breakdownType" placeholder="Enter Breakdown Type">
+
+                <label for="breakdownTime">Breakdown Time:</label>
+                <input type="time" id="breakdownTime" name="breakdownTime">
+
+                <label for="repairedTime">Repaired Time:</label>
+                <input type="text" id="RepairedTime" name="breakdownTime">
+
+                <label for="mechIncharge">Mech. Incharge:</label>
+                <input type="text" id="mechIncharge" name="mechIncharge" placeholder="Enter Mech. Incharge">
+
+                <label for="actionTaken">Action Taken:</label>
+                <input type="text" id="actionTaken" name="actionTaken">
+            </div>
+        </div>
+
+        <!-- Vehicle / Machinery or Power Tools Section -->
+        <h3 id="queryDetailsTitle">Vehicle / Machinery - Queries Details</h3>
+        <div id="vehicleMachineryForm" class="row">
+            <div class="col">
+                <label for="mechanic"> Mechanic:</label>
+                <input type="text" id="mechanic" placeholder="Enter Name">
+
+                <label for="repeatedProblem">Repeated Problem:</label>
+                <select id="repeatedProblem" name="repeatedProblem">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="fuelPumpStatus">Fuel Pump Status:</label>
+                <select id="fuelPumpStatus" name="fuelPumpStatus">
+                    <option value="">Select Fuel Pump Status</option>
+                    <option value="working">Working</option>
+                    <option value="notWorking">Not Working</option>
+                </select>
+
+                <label for="engMotorStatus">Eng/Motor Status:</label>
+                <select id="engMotorStatus" name="engMotorStatus">
+                    <option value="">Select Engine/Motor Status</option>
+                    <option value="working">Working</option>
+                    <option value="notWorking">Not Working</option>
+                </select>
+
+                <label for="sparesCost">Spares Cost:</label>
+                <input type="text" id="sparesCost" name="sparesCost" placeholder="Enter Spares Cost">
+            </div>
+
+            <div class="col">
+                <label for="firstKmMeter">1st Km/Hr Meter:</label>
+                <input type="text" id="firstKmMeter" name="firstKmMeter" placeholder="Enter Reading">
+
+                <label for="leakages">Leakages:</label>
+                <input type="text" id="leakages" name="leakages" placeholder="Leakages">
+
+                <label for="tyreStatus">Tyre Status:</label>
+                <select id="tyreStatus" name="tyreStatus">
+                    <option value="">Select</option>
+                    <option value="good">Good</option>
+                    <option value="worn">Worn</option>
+                </select>
+
+                <label for="batteryStatus">Battery Status:</label>
+                <select id="batteryStatus" name="batteryStatus">
+                    <option value="">Select</option>
+                    <option value="good">Good</option>
+                    <option value="needsReplacement">Needs Replacement</option>
+                </select>
+
+                <label for="serviceCost">Service Cost:</label>
+                <input type="text" id="serviceCost" name="serviceCost" placeholder="Enter Cost">
+            </div>
+            <div class="col">
+                <label for="secondKmMeter">2nd Km/Hr Meter:</label>
+                <input type="text" id="secondKmMeter" name="secondKmMeter" placeholder="Enter Reading">
+
+                <label for="fuelPumpSystem">Fuel Pump System:</label>
+                <select id="fuelPumpSystem" name="fuelPumpSystem">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="gasOilCondition">Gas/Oil Condition</label>
+                <select id="gasOilCondition" name="gasOilCondition">
+                    <option value="">Select</option>
+                    <option value="good">Good</option>
+                    <option value="needsReplacement">Needs Replacement</option>
+                </select>
+
+                <label for="radiatorStatus">Radiator Status:</label>
+                <select id="radiatorStatus" name="radiatorStatus">
+                    <option value="">Select</option>
+                    <option value="good">Good</option>
+                    <option value="needsReplacement">Needs Replacement</option>
+                </select>
+
+                <label for="totalCost">Total Cost:</label>
+                <input type="text" id="totalCost" name="totalCost" placeholder="Enter Cost">
+            </div>
+            <label for="sparesUsed">Spares Used:</label>
+        <input type="text" name="sparesUsed" id="sparesUsed" placeholder="Enter Spares Used">
+
+        <label for="remarks">Remarks:</label>
+        <input type="text" name="remarks" id="remarks">
+
+        <label for="documentAttached">Document Attached:</label>
+        <input type="file" name="documentAttached" id="documentAttached">
+
+        </div>
+        <div id="vehicleMachineryForm" class="row">
+            <div class="col">
+                
+                <label for="mechanic">Mechanic:</label>
+                <input type="text" id="mechanic" name="mechanic" placeholder="Enter Name">
+            
+                <label for="deadman-switch">Dead Man Switch:</label>
+                <input type="text" id="deadman-switch" name="deadman-switch" placeholder="Enter here">
+            
+                <label for="repeated-problem">Repeated Problem:</label>
+                <input type="text" id="repeated-problem" name="repeated-problem" placeholder="Enter here">
+            
+                <label for="spares-cost">Spares Cost:</label>
+                <input type="text" id="spares-cost" name="spares-cost" placeholder="Enter cost">
+            
+                <label for="total-cost">Total Cost:</label>
+                <input type="text" id="total-cost" name="total-cost" placeholder="Enter cost">
+            
+                <label for="remarks">Remarks:</label>
+                <input type="text" id="remarks" name="remarks" placeholder="Enter remarks">
+            </div>
+            <div class="col">
+         
+                <label for="machine-handle">Machine Handle Condition:</label>
+                <input type="text" id="machine-handle" name="machine-handle" placeholder="Enter here">
+          
+                <label for="machine-cable">Machine Cable Condition:</label>
+                <input type="text" id="machine-cable" name="machine-cable" placeholder="Enter here">
+           
+                <label for="wheel-guard">Wheel Guard Condition:</label>
+                <input type="text" id="wheel-guard" name="wheel-guard" placeholder="Enter here">
+           
+                <label for="service-cost">Service Cost:</label>
+                <input type="text" id="service-cost" name="service-cost" placeholder="Enter cost">
+          
+                <label for="spares-cost2">Spares Cost:</label>
+                <input type="text" id="spares-cost2" name="spares-cost2" placeholder="Enter cost">
+            
+                <label for="document">Document Attached:</label>
+                <input type="file" id="document" name="document">
+            </div>
+        
+        </div>
+        <input type="submit" value="UPLOAD">
+
+
+
+    </form>
+</div>
+
+</body>
+</html>
+    <script>
+        document.getElementById('equipmentType').addEventListener('change', function() {
+            var selectedType = this.value;
+            var queryDetailsTitle = document.getElementById('queryDetailsTitle');
+    
+            if (selectedType === 'vehicle') {
+                queryDetailsTitle.textContent = 'Vehicle / Machinery - Queries Details';
+                document.getElementById('vehicleMachineryForm').style.display = 'flex';
+            } else if (selectedType === 'powerTools') {
+                queryDetailsTitle.textContent = 'Power Tools - Queries Details';
+                document.getElementById('vehicleMachineryForm').style.display = 'none';
+            } else {
+                document.getElementById('vehicleMachineryForm').style.display = 'none';
+            }
+        });
+    </script>
+    
